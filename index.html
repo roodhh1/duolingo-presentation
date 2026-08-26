@@ -158,6 +158,24 @@
   .tagp.high{background:var(--blue-soft); color:var(--blue-deep);}
 
   /* presenter notes */
+  /* data table + needle recap */
+  table.dt{width:100%; border-collapse:collapse; font-size:clamp(11px,1vw,13.5px); margin-top:4px;}
+  table.dt th{text-align:left; font:700 10.5px var(--font-mono); letter-spacing:.03em; color:var(--muted); text-transform:uppercase; border-bottom:2px solid var(--line); padding:8px 10px;}
+  table.dt td{padding:9px 10px; border-bottom:1px solid var(--line); color:var(--ink-2);}
+  table.dt td.n{font-family:var(--font-mono); text-align:right; color:var(--ink);}
+  table.dt tr.ctrl td{color:var(--muted); font-style:italic;}
+  table.dt tr.win td{background:var(--green-soft);}
+  table.dt .ship{color:var(--green-deep); font-weight:700;}
+  table.dt .pause{color:var(--amber); font-weight:700;}
+  table.dt caption{caption-side:bottom; text-align:left; font:600 11px/1.4 var(--font-mono); color:var(--muted); margin-top:8px;}
+  .needle-rows{margin-top:4px;}
+  .nrow{display:grid; grid-template-columns:200px 1fr 240px; gap:20px; align-items:center; padding:17px 4px; border-top:1px solid var(--line);}
+  .nrow:last-child{border-bottom:1px solid var(--line);}
+  .nlabel{font-weight:800; font-size:16.5px; color:var(--green-deep); line-height:1.2;}
+  .nsit{font:600 11.5px/1.3 var(--font-mono); color:var(--muted); margin-bottom:4px;}
+  .nbody p{font-size:14.5px; margin:0; color:var(--ink-2);}
+  .nresult{font:700 13px/1.25 var(--font-sans); color:var(--ink); background:var(--green-soft); border:1px solid #cbe9ad; border-radius:9px; padding:9px 13px; text-align:center;}
+  @media(max-width:900px){ .nrow{grid-template-columns:1fr; gap:6px;} table.dt{font-size:11px;} }
   #notes{position:fixed; inset:auto 0 0 0; max-height:46vh; overflow:auto; background:#0d1512; color:#dce7df;
     border-top:3px solid var(--green); padding:20px 7vw 26px; z-index:60; display:none; font-size:14.5px; line-height:1.55;}
   #notes.show{display:block;}
@@ -251,7 +269,7 @@
   </section>
 
   <!-- 5 · THE REFRAME -->
-  <section class="slide" id="s-reframe" data-time="4:00" data-notes="<strong>~4 min. Money-moment #1 — the framework.</strong><ul><li>Frame the tension: this was <strong>two companies</strong>. CK scored on top-of-funnel Starts; Intuit execs cared about revenue — my job was bridging them.</li><li><strong>My call (say ‘I’):</strong> chasing Starts alone floods low-intent volume and suppresses conversion — and each CK impression has a monetization opportunity cost, so junk volume literally costs CK money.</li><li>I got both orgs onto <strong>full-funnel value</strong>: T2C (T2S × S2C) AND Average Revenue per Traffic — quality of traffic, not quantity.</li><li>Land it as a reusable framework — durable value for data-literate PMs (what Bronwyn wants).</li></ul>">
+  <section class="slide" id="s-reframe" data-time="3:30" data-notes="<strong>~4 min. Money-moment #1 — the framework.</strong><ul><li>Frame the tension: this was <strong>two companies</strong>. CK scored on top-of-funnel Starts; Intuit execs cared about revenue — my job was bridging them.</li><li><strong>My call (say ‘I’):</strong> chasing Starts alone floods low-intent volume and suppresses conversion — and each CK impression has a monetization opportunity cost, so junk volume literally costs CK money.</li><li>I got both orgs onto <strong>full-funnel value</strong>: T2C (T2S × S2C) AND Average Revenue per Traffic — quality of traffic, not quantity.</li><li>Land it as a reusable framework — durable value for data-literate PMs (what Bronwyn wants).</li></ul>">
     <div class="kicker">What success looked like — the reframe</div>
     <div class="grid g-58">
       <div class="stack">
@@ -296,7 +314,7 @@
   </section>
 
   <!-- 7 · STRATEGY (redesigned) -->
-  <section class="slide" id="s-strategy" data-time="4:00" data-notes="<strong>~4 min. The DS-led design — keep the STRATEGY visible.</strong><ul><li>Insight: CK already knows a lot — strip screens a cold TurboTax user must fill.</li><li>‘Refund Estimator’ CTA → land in TurboTax → two questions (complexity + confidence) → recommended pricing tiers. Order/presentation is the lever.</li><li><strong>Tie back to opportunity cost:</strong> we tuned the hook to intent — subtle banners for casual ~90-sec sessions, prominent prompts for high-intent — to grow TT Starts while minimizing lost CK revenue.</li><li>Say ‘pricing tier’, not SKU.</li></ul>">
+  <section class="slide" id="s-strategy" data-time="3:30" data-notes="<strong>~4 min. The DS-led design — keep the STRATEGY visible.</strong><ul><li>Insight: CK already knows a lot — strip screens a cold TurboTax user must fill.</li><li>‘Refund Estimator’ CTA → land in TurboTax → two questions (complexity + confidence) → recommended pricing tiers. Order/presentation is the lever.</li><li><strong>Tie back to opportunity cost:</strong> we tuned the hook to intent — subtle banners for casual ~90-sec sessions, prominent prompts for high-intent — to grow TT Starts while minimizing lost CK revenue.</li><li>Say ‘pricing tier’, not SKU.</li></ul>">
     <div class="kicker">Strategy</div>
     <div class="grid g-58">
       <div class="stack">
@@ -323,8 +341,32 @@
     </div>
   </section>
 
-  <!-- 8 · CHALLENGE -->
-  <section class="slide" id="s-challenge" data-time="4:30" data-notes="<strong>~4.5 min. Money-moment #2 — judgment under fire. Land it.</strong><ul><li>Extrinsic pressure: after IRS opened, TurboTax was soft on paying customers company-wide → exec pressure.</li><li><strong>What I found (say ‘I’):</strong> users steered to higher tiers converted worst early. Caveat: some is self-selection, so I tested routing vs the control to confirm causation.</li><li><strong>Voice the framing:</strong> this was a <strong>two-way-door</strong> (reversible) decision — so the right move was a fast, calculated experiment, not waiting for certainty under pressure. Contrast with one-way doors you don’t rush.</li><li><strong>My call:</strong> during ‘first peak’, route to lower tiers to win paying customers; reverse late-season.</li></ul>">
+<!-- 7b · EXPERIMENT DETAIL -->
+  <section class="slide" id="s-experiment" data-time="2:30" data-notes="<strong>~2.5 min. The technical proof — show DS rigor and YOUR decisions.</strong><ul><li>Walk one row: <strong>R4 lifted Starts most (165) but ARPT fell to 88 — so I paused it.</strong> That’s the reframe enforced: volume that hurts monetization isn’t a win.</li><li>R2/R3 won on T2C + ARPT and cleared the 0.90 posterior bar → ship / keep-winner.</li><li>Stress the decision rule was <strong>pre-registered</strong> (no peeking), and the ship/pause calls were mine.</li><li>Say numbers are illustrative / indexed.</li></ul>">
+    <div class="kicker">Inside the experiment</div>
+    <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
+    <table class="dt">
+      <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
+        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">97</td><td class="n">103</td><td class="n">0.68</td><td class="pause">pause — S2C dip</td></tr>
+        <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
+        <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
+        <tr><td>R4</td><td>force low-tier routing</td><td class="n">165</td><td class="n">101</td><td class="n">88</td><td class="n">0.55</td><td class="pause">pause — ARPT ↓</td></tr>
+      </tbody>
+      <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
+    </table>
+    <div class="grid g-64" style="margin-top:16px">
+      <div class="callout"><div class="t">The decision rule (set before launch)</div><p>Ship only when the posterior <strong>P(beats control) ≥ 0.90</strong> on <strong>T2C</strong> — and no regression on the guardrails (<strong>S2C, ARPT</strong>). R4 tripled the top of funnel but hurt monetization, so I paused it. <em>The reframe, enforced.</em></p></div>
+      <div class="stack" style="gap:10px">
+        <div class="role-badge">◆ My call — ship / pause / keep-winner</div>
+        <p style="font-size:12.5px;color:var(--muted);margin:0">No peeking: the threshold was fixed up front, so a big Starts number couldn't buy its way to a ship.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- 8 · CHALLENGE -->
+  <section class="slide" id="s-challenge" data-time="4:00" data-notes="<strong>~4.5 min. Money-moment #2 — judgment under fire. Land it.</strong><ul><li>Extrinsic pressure: after IRS opened, TurboTax was soft on paying customers company-wide → exec pressure.</li><li><strong>What I found (say ‘I’):</strong> users steered to higher tiers converted worst early. Caveat: some is self-selection, so I tested routing vs the control to confirm causation.</li><li><strong>Voice the framing:</strong> this was a <strong>two-way-door</strong> (reversible) decision — so the right move was a fast, calculated experiment, not waiting for certainty under pressure. Contrast with one-way doors you don’t rush.</li><li><strong>My call:</strong> during ‘first peak’, route to lower tiers to win paying customers; reverse late-season.</li></ul>">
     <div class="kicker">The challenge — judgment under pressure</div>
     <div class="grid g-58">
       <div class="stack">
@@ -489,7 +531,30 @@
     </div>
   </section>
 
-  <!-- 14 · CLOSE -->
+<!-- 13b · NEEDLE-MOVERS -->
+  <section class="slide" id="s-needle" data-time="1:00" data-notes="<strong>~1 min. The recap that fixes ‘what did YOU do’. Say each Action as ‘I…’.</strong><ul><li>Three crisp lines — this is the slide the panel remembers your role by.</li><li>If time is tight, deliver it over the close.</li></ul>">
+    <div class="kicker">Where I moved the needle</div>
+    <h2 style="margin-bottom:10px">Three decisions that were mine</h2>
+    <div class="needle-rows">
+      <div class="nrow">
+        <div class="nlabel">① The reframe</div>
+        <div class="nbody"><div class="nsit">Success was framed as Starts.</div><p><strong>I</strong> replaced it with <strong>T2C + Average Revenue per Traffic</strong> and got CK and Intuit to adopt it.</p></div>
+        <div class="nresult">the season's shared decision language</div>
+      </div>
+      <div class="nrow">
+        <div class="nlabel">② The mid-season call</div>
+        <div class="nbody"><div class="nsit">Exec pressure on Units; a counter-intuitive signal.</div><p><strong>I</strong> ran the reversible experiment that routed low-intent to lower tiers in first peak.</p></div>
+        <div class="nresult">paying-customer volume, no over-discounting</div>
+      </div>
+      <div class="nrow">
+        <div class="nlabel">③ The team &amp; durable assets</div>
+        <div class="nbody"><div class="nsit">Team stretched across several bets.</div><p><strong>I</strong> allocated a Senior Staff DS, set the operating rhythm, and shipped the defector model.</p></div>
+        <div class="nresult">+~5pp · reused by other teams</div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 14 · CLOSE -->
   <section class="slide" id="s-close" data-time="1:00" data-notes="<strong>~1 min. Close on what’s portable, then open Q&amp;A.</strong><ul><li>Three things I bring: reframing metrics into decision frameworks PMs adopt; protecting the long-term number under pressure; leading a team as a portfolio of bets.</li><li>End warm: ‘Happy to go deeper on the control design, the routing, or the defector model.’</li></ul>">
     <div class="kicker">What I'd bring to User Growth at Duolingo</div>
     <h2 style="margin-bottom:28px;max-width:24ch">Reframe the metric. Protect the long view. Lead the team that ships it.</h2>
