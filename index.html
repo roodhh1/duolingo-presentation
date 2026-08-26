@@ -176,6 +176,11 @@
   .nbody p{font-size:14.5px; margin:0; color:var(--ink-2);}
   .nresult{font:700 13px/1.25 var(--font-sans); color:var(--ink); background:var(--green-soft); border:1px solid #cbe9ad; border-radius:9px; padding:9px 13px; text-align:center;}
   @media(max-width:900px){ .nrow{grid-template-columns:1fr; gap:6px;} table.dt{font-size:11px;} }
+  .mgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px;}
+  .mcard{background:var(--bg-soft); border:1px solid var(--line); border-radius:12px; padding:12px 13px;}
+  .mcard .mh{font:700 11px var(--font-mono); letter-spacing:.03em; text-transform:uppercase; color:var(--green-deep); margin-bottom:5px;}
+  .mcard p{font-size:12px; line-height:1.42; color:var(--ink-2); margin:0;}
+  @media(max-width:900px){ .mgrid{grid-template-columns:1fr 1fr;} }
   #notes{position:fixed; inset:auto 0 0 0; max-height:46vh; overflow:auto; background:#0d1512; color:#dce7df;
     border-top:3px solid var(--green); padding:20px 7vw 26px; z-index:60; display:none; font-size:14.5px; line-height:1.55;}
   #notes.show{display:block;}
@@ -295,7 +300,6 @@
           <text x="296" y="162" class="gsmall" fill="#98A3AD">S2C</text>
           <text x="210" y="243" text-anchor="middle" class="gnum" fill="#3C8A00" font-size="15">T2C = T2S × S2C</text>
         </svg>
-        <div class="cap">A real funnel — win quality <b>through</b> it, not just volume <b>into</b> it.</div>
       </div>
     </div>
   </section>
@@ -305,9 +309,9 @@
     <div class="kicker">Measurable goals</div>
     <h2 style="margin-bottom:26px">One number to grow, one number to protect</h2>
     <div class="tiles t3">
-      <div class="tile"><div class="num mono">3×</div><div class="lbl"><strong>Primary — Starts (YoY)</strong><br>net-new starts from the CK channel</div><div class="sub">TARGET · INDEX 100 → 300</div></div>
-      <div class="tile"><div class="num mono blue">2×</div><div class="lbl"><strong>Guardrail — Revenue (YoY)</strong><br>growth can't dilute value per customer</div><div class="sub">TARGET · INDEX 100 → 200</div></div>
-      <div class="tile"><div class="num mono" style="font-size:clamp(18px,1.9vw,25px);line-height:1.12">Quality<br>over volume</div><div class="lbl">Every low-intent Start burns a paid CK impression — so junk volume isn't free.</div><div class="sub">THE DISCIPLINE</div></div>
+      <div class="tile"><div class="num mono">3×</div><div class="lbl"><strong>Primary — Starts (YoY)</strong><br>net-new starts from the CK channel</div></div>
+      <div class="tile"><div class="num mono blue">2×</div><div class="lbl"><strong>Guardrail — Revenue (YoY)</strong><br>growth can't dilute value per customer</div></div>
+      <div class="tile"><div class="num mono" style="font-size:clamp(18px,1.9vw,25px);line-height:1.12">Quality<br>over volume</div><div class="lbl">Every low-intent Start burns a paid CK impression — so junk volume isn't free.</div></div>
     </div>
     <div class="callout" style="margin-top:26px"><p><strong>Why a guardrail at all?</strong> Because a 3× starts number is easy to hit badly. Pairing it with revenue forced every decision to respect the long-term value of the customer — not just the click.</p></div>
     <p class="title-note">All metrics indexed to protect confidentiality. Baseline = 100.</p>
@@ -336,7 +340,6 @@
           <div class="fbox"><span class="tagp low">LOW INTENT</span><div class="ft">route to <b>lower tier</b> — win the paying customer</div></div>
           <div class="fbox"><span class="tagp high">HIGH INTENT</span><div class="ft">route to <b>higher tier</b> — capture value</div></div>
         </div>
-        <div class="cap" style="text-align:center;color:var(--muted);font:600 11.5px var(--font-mono);margin-top:2px">Ordering &amp; presentation = the experiment surface</div>
       </div>
     </div>
   </section>
@@ -440,7 +443,7 @@
   </section>
 
 <!-- 7b · EXPERIMENT DETAIL -->
-  <section class="slide" id="s-experiment" data-time="2:30" data-notes="<strong>~2.5 min. The technical proof — show DS rigor and YOUR decisions.</strong><ul><li>Walk one row: <strong>R4 lifted Starts most (165) but ARPT fell to 88 — so I paused it.</strong> That’s the reframe enforced: volume that hurts monetization isn’t a win.</li><li>R2/R3 won on T2C + ARPT and cleared the 0.90 posterior bar → ship / keep-winner.</li><li>Stress the decision rule was <strong>pre-registered</strong> (no peeking), and the ship/pause calls were mine.</li><li>Say numbers are illustrative / indexed.</li></ul>">
+  <section class="slide" id="s-experiment" data-time="3:00" data-notes="<strong>~3 min. The A/B deep dive — ready for PM/DS methodology probes.</strong><ul><li>Walk R4: lifted Starts most (165) but ARPT fell to 88 → I paused it. The reframe enforced.</li><li><strong>Sizing/significance:</strong> recipes powered up front for a target MDE on T2C; peak traffic hit power in days. Sequential Bayesian reads with a pre-set threshold + futility rule → act on early signals, pivot without waiting for fixed-horizon significance.</li><li><strong>Did the first win? No —</strong> R1 dipped S2C early, so we killed it and pivoted to R2, then layered R3 (one change at a time = attributable lift).</li><li><strong>Segments (Ana’s Q):</strong> cut by complexity × confidence × time-of-season; where a recipe helped simple filers but hurt complex ones, we split the policy (season inversion + tier routing).</li><li><strong>Role clarity:</strong> PM owned the roadmap; my team owned metrics, experiment design &amp; the ship/pause calls; my Staff DS ran the reads — say this to balance the ‘I’.</li></ul>">
     <div class="kicker">Inside the experiment</div>
     <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
     <table class="dt">
@@ -454,27 +457,27 @@
       </tbody>
       <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
     </table>
-    <div class="grid g-64" style="margin-top:16px">
-      <div class="callout"><div class="t">The decision rule (set before launch)</div><p>Ship only when the posterior <strong>P(beats control) ≥ 0.90</strong> on <strong>T2C</strong> — and no regression on the guardrails (<strong>S2C, ARPT</strong>). R4 tripled the top of funnel but hurt monetization, so I paused it. <em>The reframe, enforced.</em></p></div>
-      <div class="stack" style="gap:10px">
-        <div class="role-badge">◆ My call — ship / pause / keep-winner</div>
-        <p style="font-size:12.5px;color:var(--muted);margin:0">No peeking: the threshold was fixed up front, so a big Starts number couldn't buy its way to a ship.</p>
-      </div>
+    <div class="mgrid">
+      <div class="mcard"><div class="mh">Sizing &amp; power</div><p>Each recipe was powered up front for a target lift on T2C. Peak-season traffic reached that power in days, not weeks.</p></div>
+      <div class="mcard"><div class="mh">Early reads → pivot</div><p>Sequential Bayesian posterior, not a fixed horizon — with a futility rule. R1 was dipping S2C early, so we killed it and moved to R2 mid-week.</p></div>
+      <div class="mcard"><div class="mh">Iteration</div><p>Losers paused; the winner became the bar. Each round layered <em>one</em> change (R2 → R3), so every lift was attributable.</p></div>
+      <div class="mcard"><div class="mh">Segment cuts</div><p>Read by complexity × confidence × time-of-season. A recipe that helped simple filers but hurt complex ones → we split the policy.</p></div>
     </div>
+    <div class="callout" style="margin-top:14px"><p><strong>Pre-registered rule:</strong> ship at <strong>P(win) ≥ 0.90</strong> on T2C with no guardrail regression — so R4's Starts spike couldn't win on volume alone. <strong>The ship / pause / keep-winner calls were mine; my Staff DS ran the daily reads.</strong></p></div>
   </section>
 
     <!-- 11 · LEADING THE TEAM (defector prominent) -->
-  <section class="slide" id="s-team" data-time="3:00" data-notes="<strong>~3 min. The MANAGER slide — leadership unmistakable + defector model front and center.</strong><ul><li>Team stretched → I <strong>allocated a Senior Staff DS</strong> to own execution; I set the operating rhythm and made the calls.</li><li>Cadence: daily ops; recipes reviewed w/ PM every other day; ship/pause/keep-winner on the Bayesian read; I coached the read-outs.</li><li><strong>Defector model (make it prominent):</strong> a productionalized classifier predicting drop-off (demographics, tier, data imputed, last-seen stage) → CRM + in-app push re-engagement. <strong>+~5pp re-start &amp; conversion, reused by other teams.</strong> Neil (eng) will like the productionalization.</li><li>A manager’s leverage is allocation, rhythm, judgment — not doing every analysis.</li></ul>">
+  <section class="slide" id="s-team" data-time="3:00" data-notes="<strong>~3 min. The MANAGER slide — leadership unmistakable + defector model front and center.</strong><ul><li>Team stretched → I <strong>allocated a Senior Staff DS</strong> to own execution; I set the operating rhythm and made the calls.</li><li>Cadence: daily ops; recipes reviewed w/ PM every other day; ship/pause/keep-winner on the Bayesian read; I coached the read-outs.</li><li><strong>Defector model (make it prominent):</strong> a productionalized classifier predicting drop-off (demographics, tier, data imputed, last-seen stage) → CRM + in-app push re-engagement. <strong>+~5pp re-start &amp; conversion, reused by other teams.</strong> Neil (eng) will like the productionalization.</li><li>A manager’s leverage is allocation, rhythm, judgment — not doing every analysis.</li><li><strong>Balance the ‘I’ (Ana’s note):</strong> credit how you ENABLED the team — gave the Staff DS ownership, coached them into bigger calls; PM owned the roadmap, you owned measurement + experiment decisions.</li></ul>">
     <div class="kicker">Leading the team &amp; execution</div>
     <div class="grid g-58">
       <div class="stack">
         <h2 style="margin-bottom:4px">My leverage: allocation, rhythm &amp; judgment</h2>
         <ul class="clean" style="margin-top:2px">
-          <li><strong>Allocated a Senior Staff DS</strong> to own day-to-day while my team ran several bets — I set the operating system and made the calls.</li>
+          <li><strong>Gave a Senior Staff DS real ownership</strong> of the experiment design while my team ran several bets — I set the operating system, they drove day-to-day.</li>
           <li class="blue"><strong>Cadence:</strong> daily ops; recipes reviewed with the PM every other day; ship / pause / keep-winner on the Bayesian read.</li>
-          <li><strong>Coached the read-outs</strong> and held the guardrails when a vanity number tempted.</li>
+          <li><strong>Grew the owner:</strong> coached the read-outs until my Staff DS was making ship/no-ship calls they couldn't have made a quarter earlier — and held the guardrails when a vanity number tempted.</li>
         </ul>
-        <div class="role-badge">◆ My contribution #3 — team allocation &amp; operating rhythm</div>
+        <div class="role-badge">◆ My contribution #3 — allocation, coaching &amp; operating rhythm</div>
       </div>
       <div class="figure plush" style="border-color:#cbe9ad; background:linear-gradient(180deg,#f6fcef,#eef8e0)">
         <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px">
@@ -485,7 +488,6 @@
         <p style="font-size:13px;color:var(--ink-2);margin:6px 0 4px">Predicts a customer's probability to drop off — from demographics, tier selected, data imputed &amp; last-seen stage — then drives re-engagement via <strong>CRM + in-app push.</strong></p>
         <svg viewBox="0 0 360 128" role="img" aria-label="Defector model lift plus about 5 percentage points">
           <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#3C8A00"/></marker></defs>
-          <line x1="26" y1="102" x2="334" y2="102" class="axis"/>
           <rect x="70" y="82" width="72" height="20" rx="4" fill="#98A3AD"/>
           <text x="106" y="120" text-anchor="middle" class="gsmall">before</text>
           <rect x="218" y="50" width="72" height="52" rx="4" fill="#58CC02"/>
