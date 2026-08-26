@@ -443,17 +443,17 @@
   </section>
 
 <!-- 7b · EXPERIMENT DETAIL -->
-  <section class="slide" id="s-experiment" data-time="3:00" data-notes="<strong>~3 min. The A/B deep dive — ready for PM/DS methodology probes.</strong><ul><li>Walk R4: lifted Starts most (165) but ARPT fell to 88 → I paused it. The reframe enforced.</li><li><strong>Sizing/significance:</strong> recipes powered up front for a target MDE on T2C; peak traffic hit power in days. Sequential Bayesian reads with a pre-set threshold + futility rule → act on early signals, pivot without waiting for fixed-horizon significance.</li><li><strong>Did the first win? No —</strong> R1 dipped S2C early, so we killed it and pivoted to R2, then layered R3 (one change at a time = attributable lift).</li><li><strong>Segments (Ana’s Q):</strong> cut by complexity × confidence × time-of-season; where a recipe helped simple filers but hurt complex ones, we split the policy (season inversion + tier routing).</li><li><strong>Role clarity:</strong> PM owned the roadmap; my team owned metrics, experiment design &amp; the ship/pause calls; my Staff DS ran the reads — say this to balance the ‘I’.</li></ul>">
+  <section class="slide" id="s-experiment" data-time="3:00" data-notes="<strong>~3 min. The A/B deep dive — ready for PM/DS methodology probes.</strong><ul><li>Walk R4: it WON on T2C (conversion up) — but only by discounting, so ARPT cratered to 84 → I paused it. Best lesson here: a number that wins the primary can still fail a guardrail (and it proves ‘no over-discounting’).</li><li><strong>Sizing/significance:</strong> recipes powered up front for a target MDE on T2C; peak traffic hit power in days. Sequential Bayesian reads with a pre-set threshold + futility rule → act on early signals, pivot without waiting for fixed-horizon significance.</li><li><strong>Did the first win? No —</strong> R1 dipped S2C early, so we killed it and pivoted to R2, then layered R3 (one change at a time = attributable lift).</li><li><strong>Segments (Ana’s Q):</strong> cut by complexity × confidence × time-of-season; where a recipe helped simple filers but hurt complex ones, we split the policy (season inversion + tier routing).</li><li><strong>Role clarity:</strong> PM owned the roadmap; my team owned metrics, experiment design &amp; the ship/pause calls; my Staff DS ran the reads — say this to balance the ‘I’.</li></ul>">
     <div class="kicker">Inside the experiment</div>
     <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
     <table class="dt">
       <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
       <tbody>
         <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
-        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">97</td><td class="n">103</td><td class="n">0.68</td><td class="pause">pause — S2C dip</td></tr>
+        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">88</td><td class="n">100</td><td class="n">0.62</td><td class="pause">pause — S2C dip</td></tr>
         <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
         <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
-        <tr><td>R4</td><td>force low-tier routing</td><td class="n">165</td><td class="n">101</td><td class="n">88</td><td class="n">0.55</td><td class="pause">pause — ARPT ↓</td></tr>
+        <tr><td>R4</td><td>aggressive discount to lift conversion</td><td class="n">132</td><td class="n">121</td><td class="n">84</td><td class="n">0.96</td><td class="pause">pause — ARPT guardrail</td></tr>
       </tbody>
       <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
     </table>
@@ -463,7 +463,7 @@
       <div class="mcard"><div class="mh">Iteration</div><p>Losers paused; the winner became the bar. Each round layered <em>one</em> change (R2 → R3), so every lift was attributable.</p></div>
       <div class="mcard"><div class="mh">Segment cuts</div><p>Read by complexity × confidence × time-of-season. A recipe that helped simple filers but hurt complex ones → we split the policy.</p></div>
     </div>
-    <div class="callout" style="margin-top:14px"><p><strong>Pre-registered rule:</strong> ship at <strong>P(win) ≥ 0.90</strong> on T2C with no guardrail regression — so R4's Starts spike couldn't win on volume alone. <strong>The ship / pause / keep-winner calls were mine; my Staff DS ran the daily reads.</strong></p></div>
+    <div class="callout" style="margin-top:14px"><p><strong>Pre-registered rule:</strong> ship at <strong>P(win) ≥ 0.90</strong> on T2C <em>and</em> no guardrail regression. R4 actually won on conversion — but only by discounting, so ARPT fell and I paused it. <strong>A tempting number can still fail a guardrail. The ship / pause / keep-winner calls were mine; my Staff DS ran the daily reads.</strong></p></div>
   </section>
 
     <!-- 11 · LEADING THE TEAM (defector prominent) -->
