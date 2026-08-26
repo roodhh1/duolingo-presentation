@@ -341,29 +341,6 @@
     </div>
   </section>
 
-<!-- 7b · EXPERIMENT DETAIL -->
-  <section class="slide" id="s-experiment" data-time="2:30" data-notes="<strong>~2.5 min. The technical proof — show DS rigor and YOUR decisions.</strong><ul><li>Walk one row: <strong>R4 lifted Starts most (165) but ARPT fell to 88 — so I paused it.</strong> That’s the reframe enforced: volume that hurts monetization isn’t a win.</li><li>R2/R3 won on T2C + ARPT and cleared the 0.90 posterior bar → ship / keep-winner.</li><li>Stress the decision rule was <strong>pre-registered</strong> (no peeking), and the ship/pause calls were mine.</li><li>Say numbers are illustrative / indexed.</li></ul>">
-    <div class="kicker">Inside the experiment</div>
-    <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
-    <table class="dt">
-      <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
-      <tbody>
-        <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
-        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">97</td><td class="n">103</td><td class="n">0.68</td><td class="pause">pause — S2C dip</td></tr>
-        <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
-        <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
-        <tr><td>R4</td><td>force low-tier routing</td><td class="n">165</td><td class="n">101</td><td class="n">88</td><td class="n">0.55</td><td class="pause">pause — ARPT ↓</td></tr>
-      </tbody>
-      <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
-    </table>
-    <div class="grid g-64" style="margin-top:16px">
-      <div class="callout"><div class="t">The decision rule (set before launch)</div><p>Ship only when the posterior <strong>P(beats control) ≥ 0.90</strong> on <strong>T2C</strong> — and no regression on the guardrails (<strong>S2C, ARPT</strong>). R4 tripled the top of funnel but hurt monetization, so I paused it. <em>The reframe, enforced.</em></p></div>
-      <div class="stack" style="gap:10px">
-        <div class="role-badge">◆ My call — ship / pause / keep-winner</div>
-        <p style="font-size:12.5px;color:var(--muted);margin:0">No peeking: the threshold was fixed up front, so a big Starts number couldn't buy its way to a ship.</p>
-      </div>
-    </div>
-  </section>
 
     <!-- 8 · CHALLENGE -->
   <section class="slide" id="s-challenge" data-time="4:00" data-notes="<strong>~4.5 min. Money-moment #2 — judgment under fire. Land it.</strong><ul><li>Extrinsic pressure: after IRS opened, TurboTax was soft on paying customers company-wide → exec pressure.</li><li><strong>What I found (say ‘I’):</strong> users steered to higher tiers converted worst early. Caveat: some is self-selection, so I tested routing vs the control to confirm causation.</li><li><strong>Voice the framing:</strong> this was a <strong>two-way-door</strong> (reversible) decision — so the right move was a fast, calculated experiment, not waiting for certainty under pressure. Contrast with one-way doors you don’t rush.</li><li><strong>My call:</strong> during ‘first peak’, route to lower tiers to win paying customers; reverse late-season.</li></ul>">
@@ -462,7 +439,31 @@
     </div>
   </section>
 
-  <!-- 11 · LEADING THE TEAM (defector prominent) -->
+<!-- 7b · EXPERIMENT DETAIL -->
+  <section class="slide" id="s-experiment" data-time="2:30" data-notes="<strong>~2.5 min. The technical proof — show DS rigor and YOUR decisions.</strong><ul><li>Walk one row: <strong>R4 lifted Starts most (165) but ARPT fell to 88 — so I paused it.</strong> That’s the reframe enforced: volume that hurts monetization isn’t a win.</li><li>R2/R3 won on T2C + ARPT and cleared the 0.90 posterior bar → ship / keep-winner.</li><li>Stress the decision rule was <strong>pre-registered</strong> (no peeking), and the ship/pause calls were mine.</li><li>Say numbers are illustrative / indexed.</li></ul>">
+    <div class="kicker">Inside the experiment</div>
+    <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
+    <table class="dt">
+      <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
+        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">97</td><td class="n">103</td><td class="n">0.68</td><td class="pause">pause — S2C dip</td></tr>
+        <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
+        <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
+        <tr><td>R4</td><td>force low-tier routing</td><td class="n">165</td><td class="n">101</td><td class="n">88</td><td class="n">0.55</td><td class="pause">pause — ARPT ↓</td></tr>
+      </tbody>
+      <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
+    </table>
+    <div class="grid g-64" style="margin-top:16px">
+      <div class="callout"><div class="t">The decision rule (set before launch)</div><p>Ship only when the posterior <strong>P(beats control) ≥ 0.90</strong> on <strong>T2C</strong> — and no regression on the guardrails (<strong>S2C, ARPT</strong>). R4 tripled the top of funnel but hurt monetization, so I paused it. <em>The reframe, enforced.</em></p></div>
+      <div class="stack" style="gap:10px">
+        <div class="role-badge">◆ My call — ship / pause / keep-winner</div>
+        <p style="font-size:12.5px;color:var(--muted);margin:0">No peeking: the threshold was fixed up front, so a big Starts number couldn't buy its way to a ship.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- 11 · LEADING THE TEAM (defector prominent) -->
   <section class="slide" id="s-team" data-time="3:00" data-notes="<strong>~3 min. The MANAGER slide — leadership unmistakable + defector model front and center.</strong><ul><li>Team stretched → I <strong>allocated a Senior Staff DS</strong> to own execution; I set the operating rhythm and made the calls.</li><li>Cadence: daily ops; recipes reviewed w/ PM every other day; ship/pause/keep-winner on the Bayesian read; I coached the read-outs.</li><li><strong>Defector model (make it prominent):</strong> a productionalized classifier predicting drop-off (demographics, tier, data imputed, last-seen stage) → CRM + in-app push re-engagement. <strong>+~5pp re-start &amp; conversion, reused by other teams.</strong> Neil (eng) will like the productionalization.</li><li>A manager’s leverage is allocation, rhythm, judgment — not doing every analysis.</li></ul>">
     <div class="kicker">Leading the team &amp; execution</div>
     <div class="grid g-58">
