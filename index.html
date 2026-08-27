@@ -167,6 +167,8 @@
   table.dt tr.win td{background:var(--green-soft);}
   table.dt .ship{color:var(--green-deep); font-weight:700;}
   table.dt .pause{color:var(--amber); font-weight:700;}
+  table.dt th.t2ch{color:var(--green-deep);}
+  table.dt td.t2c{font-family:var(--font-mono); text-align:right; color:var(--green-deep); font-weight:700;}
   table.dt caption{caption-side:bottom; text-align:left; font:600 11px/1.4 var(--font-mono); color:var(--muted); margin-top:8px;}
   .needle-rows{margin-top:4px;}
   .nrow{display:grid; grid-template-columns:200px 1fr 240px; gap:20px; align-items:center; padding:17px 4px; border-top:1px solid var(--line);}
@@ -447,15 +449,15 @@
     <div class="kicker">Inside the experiment</div>
     <h2 style="margin-bottom:12px">How we read recipes — and where I made the call</h2>
     <table class="dt">
-      <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
+      <thead><tr><th>Recipe</th><th>Onboarding change</th><th>T2S</th><th>S2C*</th><th class="t2ch">T2C ◆</th><th>ARPT</th><th>P(beats&nbsp;control)</th><th>Decision</th></tr></thead>
       <tbody>
-        <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
-        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">88</td><td class="n">100</td><td class="n">0.62</td><td class="pause">pause — S2C dip</td></tr>
-        <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
-        <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
-        <tr><td>R4</td><td>aggressive discount to lift conversion</td><td class="n">132</td><td class="n">121</td><td class="n">84</td><td class="n">0.96</td><td class="pause">pause — ARPT guardrail</td></tr>
+        <tr class="ctrl"><td>Control</td><td>prior long flow (net-new screens)</td><td class="n">100</td><td class="n">100</td><td class="t2c">100</td><td class="n">100</td><td class="n">—</td><td>baseline</td></tr>
+        <tr><td>R1</td><td>refund-first, reordered questions</td><td class="n">128</td><td class="n">88</td><td class="t2c">113</td><td class="n">100</td><td class="n">0.62</td><td class="pause">pause — S2C dip</td></tr>
+        <tr class="win"><td>R2</td><td>2-question tier match</td><td class="n">141</td><td class="n">103</td><td class="t2c">145</td><td class="n">116</td><td class="n">0.93</td><td class="ship">✓ ship</td></tr>
+        <tr class="win"><td>R3</td><td>R2 + income data-in (ADP import)</td><td class="n">138</td><td class="n">105</td><td class="t2c">145</td><td class="n">121</td><td class="n">0.97</td><td class="ship">✓ keep-winner</td></tr>
+        <tr><td>R4</td><td>aggressive discount to lift conversion</td><td class="n">132</td><td class="n">121</td><td class="t2c">160</td><td class="n">84</td><td class="n">0.96</td><td class="pause">pause — ARPT guardrail</td></tr>
       </tbody>
-      <caption>*S2C indexed vs control (100). Illustrative &amp; obfuscated. Pre-registered ship rule: P(beats control) ≥ 0.90 on Traffic→Conversion, no guardrail regression.</caption>
+      <caption><strong style="color:var(--green-deep)">◆ T2C (= T2S × S2C) is the success metric</strong> — P(beats control) is measured on it. *All indices vs control (100), illustrative &amp; obfuscated. Ship rule: P ≥ 0.90 on T2C, no guardrail regression.</caption>
     </table>
     <div class="mgrid">
       <div class="mcard"><div class="mh">Sizing &amp; power</div><p>Each recipe was powered up front for a target lift on T2C. Peak-season traffic reached that power in days, not weeks.</p></div>
